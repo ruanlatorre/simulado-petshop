@@ -12,8 +12,8 @@
     <button class="toggle-nav-btn" onclick="alternarNavBar()">☰ Menu de Navegação</button>
     <nav class="navbar-pet" id="navbarPet" style="display: none;">
         <div class="nav-folders">
-            <button class="folder-btn active" onclick="mostrarCadastros()"> Pasta: Cadastros (Views)</button>
-            <button class="folder-btn" onclick="mostrarTabelas()"> Pasta: Tabelas (Tables)</button>
+            <button class="folder-btn active" id="btn-cadastros" onclick="mostrarCadastros()">📂 Pasta: Cadastros (Views)</button>
+            <button class="folder-btn" id="btn-tabelas" onclick="mostrarTabelas()">📁 Pasta: Tabelas (Tables)</button>
         </div>
 
         <ul class="lista-links-pet" id="list-views">
