@@ -1,4 +1,4 @@
-<?php session_start(); require_once("../db/conection.php"); ?>
+<?php require_once("../db/conection.php"); ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -8,7 +8,7 @@
     <title>Home - PetManager</title>
 </head>
 <body>
-    <p>Bem vindo, <?php echo isset($_SESSION['email_usuario']) ? $_SESSION['email_usuario'] : 'Visitante'; ?>!</p>
+    <h1>Bem-vindo ao PetManager!</h1>
     <?php include("../components/navbar.php"); ?>
 </body>
 </html>
