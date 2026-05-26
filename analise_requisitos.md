@@ -11,4 +11,4 @@ O sistema terá controle de entrada/saída de produtos, controle de estoque mín
 
 *Requisitos Não Funcionais:*
 - Estilização Simples (CSS Vanilla);
-- Interface Simples;
+- Separação entre formularios e tabelas;

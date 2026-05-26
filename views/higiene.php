@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos de Higiene</title>
+    <link rel="stylesheet" href="../assets/css/form.css">
 </head>
+
 <body>
+    <?php include("../components/navbar.php"); ?>
     <form action="../api/processa_higiene.php" method="post">
         <input type="hidden" name="action" value="<?php echo isset($_GET['id']) ?>">
 
@@ -28,15 +32,13 @@
         </select>
 
         <label for="tipo_animal">Tipo de Animal:</label>
-        <select id="tipo_animal" name="tipo_animal" required>
-            <option value="">Selecione...</option>
-            <option value="cachorro">Cachorro</option>
-            <option value="gato">Gato</option>
-            <option value="passarinho">Passarinho</option>
-            <option value="roedor">Roedor</option>
-        </select>
+        <input type="text" id="tipo_animal" name="tipo_animal" required>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" required>
 
         <button type="submit">Adicionar Produto de Higiene</button>
     </form>
 </body>
+
 </html>

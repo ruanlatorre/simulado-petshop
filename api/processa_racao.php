@@ -9,17 +9,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sabor_racao = $_POST['sabor_racao'] ?? '';
     $tipo_racao = $_POST['tipo_racao'] ?? '';
     $tipo_animal = $_POST['tipo_animal'] ?? '';
-    $quantidade_racao = $_POST['quantidade_racao'] ?? '';
+    $quantidade_racao = $_POST['quantidade'] ?? $_POST['quantidade_racao'] ?? 0;
 
-    $sql = "INSERT INTO racoes (marca_racao, tipo_racao, peso_racao, unidade_medida, tipo_animal) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO racoes (marca_racao, tipo_racao, sabor_racao, peso_racao, unidade_medida, tipo_animal, quantidade) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
-    mysqli_stmt_bind_param($stmt, "sssss", $marca_racao, $tipo_racao, $peso_racao, $unidade_medida, $tipo_animal);
+    mysqli_stmt_bind_param($stmt, "ssssssi", $marca_racao, $tipo_racao, $sabor_racao, $peso_racao, $unidade_medida, $tipo_animal, $quantidade_racao);
 
     if (mysqli_stmt_execute($stmt)) {
+        if ((int)$quantidade_racao < 20) {
+            echo "<script>alert('Erro: O estoque está abaixo de 20 unidades!'); window.location.href = '../views/racao.php';</script>";
+            exit;
+        }
         echo "Ração adicionada com sucesso!";
     } else {
         echo "Erro ao adicionar ração: " . mysqli_error($conexao);
     }
-    header("Location: ../views/racoes.php");
+    header("Location: ../views/racao.php");
 }
 ?>

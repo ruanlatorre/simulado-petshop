@@ -1,15 +1,17 @@
-
-
-<?php session_start(); require_once("../db/conection.php"); ?>
+<?php require_once("../db/conection.php"); ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicamentos - PetManager</title>
+    <link rel="stylesheet" href="../assets/css/form.css">
 </head>
+
 <body>
+    <?php include("../components/navbar.php"); ?>
     <form action="../api/processa_medicamento.php" method="post">
         <input type="hidden" name="action" value="<?php echo isset($_GET['id']) ?>">
 
@@ -28,7 +30,11 @@
         <label for="tipo_animal">Tipo de Animal:</label>
         <input type="text" id="tipo_animal" name="tipo_animal" required>
 
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" required>
+
         <button type="submit">Adicionar Medicamento</button>
     </form>
 </body>
+
 </html>
